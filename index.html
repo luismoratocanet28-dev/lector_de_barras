@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="./javascript.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OmniCheck V2 | Lector de Barras Premium</title>
+  <meta name="description" content="Escáner profesional de códigos de barras y QR con historial y exportación.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="app">
+    <div class="background-mesh"></div>
+
+    <main class="glass-container">
+      <header class="hero">
+        <div class="logo-container">
+          <div class="logo-orb"></div>
+          <h1 class="gradient-text">OmniCheck <span>V2</span></h1>
+        </div>
+        <p class="tagline">Tecnología de escaneo inteligente en tu navegador</p>
+      </header>
+
+      <section class="scanner-section">
+        <div class="scanner-wrapper">
+          <div id="reader"></div>
+          <div class="scanner-overlay" id="scanner-overlay">
+            <div class="scan-frame">
+              <div class="corner top-left"></div>
+              <div class="corner top-right"></div>
+              <div class="corner bottom-left"></div>
+              <div class="corner bottom-right"></div>
+              <div class="scan-line"></div>
+            </div>
+          </div>
+
+          <div id="result-overlay" class="hidden">
+            <div class="result-modal">
+              <div class="success-icon">
+                <i data-lucide="check-circle-2"></i>
+              </div>
+              <h2>Código Detectado</h2>
+              <div id="result-value" class="result-box"></div>
+              <div class="modal-actions">
+                <button id="copy-btn" class="btn-action">
+                  <i data-lucide="copy"></i> Copiar
+                </button>
+                <button id="resume-btn" class="btn-primary">
+                  <i data-lucide="refresh-cw"></i> Continuar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="history-section">
+        <div class="history-header">
+          <h3><i data-lucide="history"></i> Historial Reciente</h3>
+          <button id="export-btn" class="btn-ghost">
+            <i data-lucide="download"></i> Exportar
+          </button>
+        </div>
+        <div id="history-list" class="history-list">
+          <div class="empty-state">
+            <p>No hay escaneos todavía</p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="app-footer">
+        <p>Potenciado por HTML5-QRCode • v2.0</p>
+      </footer>
+    </main>
+  </div>
+  <!-- CDNs for direct browser execution -->
+  <script src="https://unpkg.com/html5-qrcode"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.js"></script>
+
+  <script type="module" src="./main.js"></script>
+  <audio id="beep-sound" src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3" preload="auto"></audio>
+</body>
+
+</html>
